@@ -1,2 +1,2 @@
-# projeto-squad-3
-Projeto Recode Pro 2020 - Squad 3
+# projeto para cadastro e consultas de vaga de emprego
+
