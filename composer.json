@@ -1,0 +1,19 @@
+{
+    "name": "josiel/site-de-vagas-de-emprego",
+    "description": "Site de vagas de emprego.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Josiel\\SiteDeVagasDeEmprego\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Josiel Souza",
+            "email": "souzajosiel611@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

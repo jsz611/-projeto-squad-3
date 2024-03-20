@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 07, 2020 at 12:04 AM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Host: localhost:3306
+-- Tempo de geração: 27-Ago-2023 às 14:56
+-- Versão do servidor: 10.6.12-MariaDB-0ubuntu0.22.04.1
+-- versão do PHP: 8.1.2-1ubuntu2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,55 +18,42 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `estou_de_volta`
+-- Banco de dados: `estou_de_volta`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estrutura da tabela `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `senha` varchar(255) NOT NULL,
   `telefone` varchar(255) NOT NULL,
-  `endereco` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `usuario`
---
-
-INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`, `telefone`, `endereco`) VALUES
-(1, 'Test1', 'test', '098f6bcd4621d373cade4e832627b4f6', 'test', 'test'),
-(2, '', '', 'd41d8cd98f00b204e9800998ecf8427e', '', ''),
-(3, 'test', 'testt', '751ec45015a704a39dc403001c963e97', 'sets', 'set');
+  `endereco` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vagas`
+-- Estrutura da tabela `vagas`
 --
 
-DROP TABLE IF EXISTS `vagas`;
-CREATE TABLE IF NOT EXISTS `vagas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `vaga` varchar(150) CHARACTER SET latin1 NOT NULL,
-  `descricao` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `empregador` varchar(120) COLLATE utf8_bin NOT NULL,
-  `localizacao` varchar(60) COLLATE utf8_bin NOT NULL,
-  `salario` varchar(11) COLLATE utf8_bin NOT NULL,
-  `imagem` varchar(255) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+CREATE TABLE `vagas` (
+  `id` int(11) NOT NULL,
+  `vaga` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `descricao` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `empregador` varchar(120) NOT NULL,
+  `localizacao` varchar(60) NOT NULL,
+  `salario` varchar(11) NOT NULL,
+  `imagem` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
 --
--- Dumping data for table `vagas`
+-- Extraindo dados da tabela `vagas`
 --
 
 INSERT INTO `vagas` (`id`, `vaga`, `descricao`, `empregador`, `localizacao`, `salario`, `imagem`) VALUES
@@ -79,6 +66,38 @@ INSERT INTO `vagas` (`id`, `vaga`, `descricao`, `empregador`, `localizacao`, `sa
 (7, 'Secretária', 'Secretária da clínica, irá executar todas as funções de recepcionista de uma clínica.', 'Animalias Pet Center', 'São Paulo - SP', '1.500,00', 'assets/img/logo_pet.png'),
 (8, 'Barbeiro', 'Barbeiro com experiência ', 'Navalha Barbearia', 'São Paulo - SP', '1.000,00', 'assets/img/logo_barbearia.png'),
 (9, 'Aprendiz', 'Auxiliar no atendimento aos clientes, preencher documentos e tabelar dados de cadastro ', 'Menezes Advogados', 'São Paulo - SP', '1.000,00', 'assets/img/logo_advocacia.png');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `vagas`
+--
+ALTER TABLE `vagas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `vagas`
+--
+ALTER TABLE `vagas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
